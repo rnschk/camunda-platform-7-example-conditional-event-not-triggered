@@ -1,0 +1,15 @@
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: demo
+  client:
+    base-url: http://localhost:8080/engine-rest
+    async-response-timeout: 20000
+  generic-properties:
+    properties:
+      initializeTelemetry: false
+      telemetryReporterActivate: false
+logging:
+  level:
+    root: error
+    de.rnschk: info
