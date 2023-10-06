@@ -8,7 +8,7 @@
     <bpmn:endEvent id="EndEvent_0x6ir2l">
       <bpmn:incoming>Flow_01rucv2</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:serviceTask id="say-hello" name="Create BpmnError &#38; Write &#39;foo&#39;" camunda:type="external" camunda:topic="bpmn-error">
+    <bpmn:serviceTask id="say-hello" name="Create BpmnError &#38; Write &#39;foo&#39;" camunda:type="external" camunda:topic="bpmn-error-2">
       <bpmn:incoming>Flow_17dtybk</bpmn:incoming>
     </bpmn:serviceTask>
     <bpmn:boundaryEvent id="Event_0cb2dm7" camunda:asyncBefore="true" camunda:exclusive="false" attachedToRef="say-hello">
@@ -16,7 +16,7 @@
       <bpmn:errorEventDefinition id="ErrorEventDefinition_0f25hsm" />
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_1c96ngg" sourceRef="Event_0cb2dm7" targetRef="Activity_082wby6" />
-    <bpmn:serviceTask id="Activity_1ph9vct" name="Create BpmnError &#38; Write &#39;foo&#39;" camunda:type="external" camunda:topic="bpmn-error">
+    <bpmn:serviceTask id="Activity_1ph9vct" name="Create BpmnError &#38; Write &#39;foo&#39;" camunda:type="external" camunda:topic="bpmn-error-1">
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
     </bpmn:serviceTask>
     <bpmn:boundaryEvent id="Event_1plqfuc" attachedToRef="Activity_1ph9vct">
@@ -90,18 +90,18 @@
       <bpmndi:BPMNShape id="Activity_0gmroaa_di" bpmnElement="Activity_0mpk0ux" isExpanded="true">
         <dc:Bounds x="530" y="50" width="430" height="140" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1cfm0ko_di" bpmnElement="Event_0tjqhfz">
-        <dc:Bounds x="550" y="102" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="542" y="145" width="53" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1gg4yi9_di" bpmnElement="Event_1gg4yi9">
         <dc:Bounds x="902" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1g7eik9" bpmnElement="Activity_1tycqp7">
         <dc:Bounds x="770" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1cfm0ko_di" bpmnElement="Event_0tjqhfz">
+        <dc:Bounds x="550" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="542" y="145" width="53" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_006ppam_di" bpmnElement="Activity_0xfssqb">
         <dc:Bounds x="630" y="80" width="100" height="80" />

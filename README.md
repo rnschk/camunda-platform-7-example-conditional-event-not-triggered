@@ -11,10 +11,25 @@ The process-application starts one process-instance of this demo process after s
 
 The generated log is:
 ```
-de.rnschk.workflow.log : execute task, foo=8bef3f30
-de.rnschk.workflow.log : execute logger, foo=8bef3f30
-de.rnschk.workflow.log : execute task, foo=8bf7558a
+de.rnschk.workflow.log : execute task 1
+de.rnschk.workflow.log : execute logger, message='Hallo Task 1'
+de.rnschk.workflow.log : execute task 2
 ```
   
 The Camunda Cockpit looks like:
 ![cockpit.png](docs/cockpit.png)
+
+---
+If you remove all async-before marker, the log will be this:
+```
+de.rnschk.workflow.log : execute task 1
+de.rnschk.workflow.log : execute logger, message='Hallo Task 1'
+de.rnschk.workflow.log : execute task 2
+de.rnschk.workflow.log : execute logger, message='Hallo Task 2'
+```
+
+...and vice versa if both error-boundary-events are marked as async. before:
+```
+de.rnschk.workflow.log : execute task 1
+de.rnschk.workflow.log : execute task 2
+```

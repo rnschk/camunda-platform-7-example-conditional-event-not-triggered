@@ -15,16 +15,22 @@ public class WorkflowConfig {
     private static final Logger log = LoggerFactory.getLogger("de.rnschk.workflow.log");
 
     @Bean
-    @ExternalTaskSubscription("bpmn-error")
-    public ExternalTaskHandler bpmnErrorExternalTaskHandler() {
+    @ExternalTaskSubscription("bpmn-error-1")
+    public ExternalTaskHandler bpmnErrorExternalTaskHandler1() {
         return (task, service) -> {
-            var bar = task.getId().split("-")[0];
-            log.info("execute task, foo={}", bar);
-            service.handleBpmnError(
-              task,
-              "error code",
-              "error message",
-              createVariables().putValue("foo", bar));
+            log.info("execute task 1");
+            service.handleBpmnError(task, "error code", "error message",
+              createVariables().putValue("foo", "Hallo Task 1"));
+        };
+    }
+
+    @Bean
+    @ExternalTaskSubscription("bpmn-error-2")
+    public ExternalTaskHandler bpmnErrorExternalTaskHandler2() {
+        return (task, service) -> {
+            log.info("execute task 2");
+            service.handleBpmnError(task, "error code", "error message",
+              createVariables().putValue("foo", "Hallo Task 2"));
         };
     }
 
@@ -32,7 +38,7 @@ public class WorkflowConfig {
     public JavaDelegate logger() {
         return (execution) -> {
             var bar = execution.getVariable("foo");
-            log.info("execute logger, foo={}", bar);
+            log.info("execute logger, message='{}'", bar);
         };
     }
 
